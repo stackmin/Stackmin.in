@@ -209,7 +209,7 @@ body::before {
   color: var(--text-primary);
 }
 .nav-logo .logo-icon {
-  width: 36px; height: 36px;
+  width: 56px; height: 56px;
   background: var(--grad-main);
   border-radius: 10px;
   display: flex;
