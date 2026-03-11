@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Stackmin | Web Design, AI Automation & Generative AI</title>
+  <meta name="description" content="Explore Stackmin's full range of services: custom web design, AI automation, generative AI solutions, and strategic consulting for businesses in Bengaluru." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Tab navigation */
+    .service-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+      padding: 6px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      width: fit-content;
+    }
+    .tab-btn {
+      padding: 10px 20px;
+      font-family: var(--ff-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: transparent;
+      color: var(--text-secondary);
+      border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    .tab-btn:hover { color: var(--text-primary); background: rgba(255,255,255,0.04); }
+    .tab-btn.active {
+      background: var(--grad-blue);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(26,127,232,0.35);
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Pricing cards */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      transition: var(--transition);
+      position: relative;
+    }
+    .pricing-card.featured {
+      border-color: rgba(26,127,232,0.4);
+      background: linear-gradient(135deg, rgba(26,127,232,0.08), rgba(12,201,213,0.04));
+      box-shadow: var(--shadow-glow);
+    }
+    .pricing-card:hover { transform: translateY(-6px); border-color: var(--border-hover); }
+    .popular-badge {
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--grad-blue);
+      color: #fff;
+      font-family: var(--ff-display);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 16px;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+    .pricing-name {
+      font-family: var(--ff-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 8px;
+    }
+    .pricing-price {
+      font-family: var(--ff-display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .pricing-price span { font-size: 1rem; font-weight: 400; color: var(--text-muted); }
+    .pricing-desc { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px; line-height: 1.6; }
+    .pricing-features { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+    .pricing-features li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.875rem; color: var(--text-secondary);
+    }
+    .pricing-features li::before {
+      content: '✓';
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: rgba(61,214,140,0.15);
+      color: var(--green);
+      font-size: 0.65rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin-top: 40px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .compare-table th, .compare-table td {
+      padding: 14px 20px;
+      text-align: left;
+      font-size: 0.875rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .compare-table th {
+      background: var(--bg-elevated);
+      font-family: var(--ff-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table tbody tr { background: var(--bg-card); transition: var(--transition); }
+    .compare-table tbody tr:hover { background: var(--bg-elevated); }
+    .compare-table td:first-child { color: var(--text-primary); font-weight: 500; }
+    .chk-yes { color: var(--green); }
+    .chk-no { color: var(--text-muted); }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">S</div>
+      Stackmin
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+      <button class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-primary" style="margin-top:16px;justify-content:center;">Get a Quote</a>
+</div>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container">
+    <span class="section-label" style="justify-content:center;margin-bottom:20px;">What We Offer</span>
+    <h1 class="fade-in">Services That <span class="grad-text">Move Businesses</span></h1>
+    <p class="fade-in-delay-1">From your first website to a fully automated AI-powered business — explore everything Stackmin can build for you.</p>
+  </div>
+</div>
+
+<!-- ── SERVICES DETAIL ── -->
+<section class="section">
+  <div class="container">
+    <div class="service-tabs reveal">
+      <button class="tab-btn active" data-tab="tab-web">🌐 Web Design</button>
+      <button class="tab-btn" data-tab="tab-automation">⚙️ AI Automation</button>
+      <button class="tab-btn" data-tab="tab-genai">✨ Generative AI</button>
+      <button class="tab-btn" data-tab="tab-consulting">🧠 Consulting</button>
+      <button class="tab-btn" data-tab="tab-more">➕ More Services</button>
+    </div>
+
+    <!-- WEB DESIGN TAB -->
+    <div class="tab-panel active" id="tab-web">
+      <div class="service-detail-card reveal">
+        <div class="sdc-header">
+          <div class="sdc-icon icon-blue" style="font-size:1.8rem;">🌐</div>
+          <div>
+            <h2>Web Designing & Maintenance</h2>
+            <p>We create websites that don't just look good — they convert, perform, and grow with your business. Every project is custom-designed, mobile-first, and built with SEO best practices baked in from day one.</p>
+          </div>
+        </div>
+        <div class="sdc-features">
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>Custom Website Design</h4>
+              <p>Unique, brand-aligned designs — no templates, no compromise. Built from scratch to reflect your identity.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>Responsive Design</h4>
+              <p>Pixel-perfect on mobile, tablet, and desktop. Every screen size, every device, every time.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>E-Commerce Solutions</h4>
+              <p>Full-featured online stores with payment integration, inventory management, and smooth checkout flows.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>WordPress Development</h4>
+              <p>Custom WordPress themes and plugins, CMS setup so you can manage your own content easily.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>Landing Pages</h4>
+              <p>High-converting landing pages designed to capture leads and drive action for campaigns and launches.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>Website Maintenance</h4>
+              <p>Monthly maintenance packages: updates, security monitoring, backups, and performance optimisation.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>SEO Optimisation</h4>
+              <p>On-page SEO, speed optimisation, and structured data to help you rank higher on Google.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>Web App Development</h4>
+              <p>Custom web applications built with modern frameworks for businesses with complex functional requirements.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pricing -->
+      <div class="reveal">
+        <span class="section-label">Packages</span>
+        <h3 class="section-title" style="font-size:1.8rem;">Web Design <span class="grad-text">Pricing</span></h3>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card reveal">
+          <div class="pricing-name">Starter</div>
+          <div class="pricing-price">₹8,999 <span>one-time</span></div>
+          <div class="pricing-desc">Perfect for freelancers and early-stage startups who need a professional online presence.</div>
+          <ul class="pricing-features">
+            <li>Up to 5 pages</li>
+            <li>Responsive design</li>
+            <li>Contact form</li>
+            <li>Basic SEO setup</li>
+            <li>1 month free support</li>
+          </ul>
+          <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center;">Get Started</a>
+        </div>
+        <div class="pricing-card featured reveal">
+          <div class="popular-badge">⭐ Most Popular</div>
+          <div class="pricing-name">Business</div>
+          <div class="pricing-price">₹19,999 <span>one-time</span></div>
+          <div class="pricing-desc">Ideal for growing businesses that need a full-featured, conversion-focused website.</div>
+          <ul class="pricing-features">
+            <li>Up to 15 pages</li>
+            <li>Custom design system</li>
+            <li>CMS integration</li>
+            <li>Full SEO optimisation</li>
+            <li>Google Analytics setup</li>
+            <li>3 months free support</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Get Started</a>
+        </div>
+        <div class="pricing-card reveal">
+          <div class="pricing-name">E-Commerce</div>
+          <div class="pricing-price">₹34,999 <span>one-time</span></div>
+          <div class="pricing-desc">A full-featured online store, ready to sell. Built for growth and scale.</div>
+          <ul class="pricing-features">
+            <li>Unlimited products</li>
+            <li>Payment gateway integration</li>
+            <li>Inventory management</li>
+            <li>Mobile-first checkout</li>
+            <li>Advanced SEO</li>
+            <li>6 months free support</li>
+          </ul>
+          <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center;">Get Started</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI AUTOMATION TAB -->
+    <div class="tab-panel" id="tab-automation">
+      <div class="service-detail-card reveal">
+        <div class="sdc-header">
+          <div class="sdc-icon icon-cyan">⚙️</div>
+          <div>
+            <h2>AI Automation Services</h2>
+            <p>Stop doing manually what a machine can do for you. We design, build, and deploy intelligent automation workflows that eliminate repetitive tasks, reduce costs, and let your team focus on what actually matters.</p>
+          </div>
+        </div>
+        <div class="sdc-features">
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>Business Process Automation</h4>
+              <p>End-to-end automation of repetitive workflows — from invoice processing to customer onboarding.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>Workflow Optimisation</h4>
+              <p>Analyse your current processes and redesign them for maximum efficiency with smart automations.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>API & App Integration</h4>
+              <p>Connect your tools — CRMs, email platforms, spreadsheets — into a seamless, automated ecosystem.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>Zapier / Make / n8n Builds</h4>
+              <p>Expert builds on leading automation platforms to create powerful no-code and low-code solutions.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>Email & CRM Automation</h4>
+              <p>Automated lead nurturing, follow-up sequences, and customer lifecycle management.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>Data Extraction & Reporting</h4>
+              <p>Automated data pipelines that collect, process, and deliver insights to your team in real time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="section-label">How It Works</span>
+        <h3 class="section-title" style="font-size:1.8rem;">Our <span class="grad-text">Automation Process</span></h3>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="step-num">1</div>
+          <h4>Discovery Call</h4>
+          <p>We map your current workflows and identify high-impact automation opportunities.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num">2</div>
+          <h4>Design & Plan</h4>
+          <p>We design the automation architecture and select the right tools for your needs.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num">3</div>
+          <h4>Build & Test</h4>
+          <p>Our team builds, tests, and refines every automation until it runs flawlessly.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num">4</div>
+          <h4>Deploy & Train</h4>
+          <p>We go live and train your team to monitor and manage their new automations.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num">5</div>
+          <h4>Optimise</h4>
+          <p>Ongoing monitoring and optimisation to keep your automations running at peak efficiency.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GENERATIVE AI TAB -->
+    <div class="tab-panel" id="tab-genai">
+      <div class="service-detail-card reveal">
+        <div class="sdc-header">
+          <div class="sdc-icon icon-green">✨</div>
+          <div>
+            <h2>Generative AI Solutions</h2>
+            <p>We build custom AI-powered tools and systems using the latest generative AI models — tailored specifically for your business, your industry, and your data.</p>
+          </div>
+        </div>
+        <div class="sdc-features">
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>AI Chatbot Development</h4>
+              <p>Intelligent conversational agents for customer support, sales, and internal operations — trained on your data.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>AI Content Generation</h4>
+              <p>Automated content pipelines for blogs, social media, product descriptions, and marketing copy at scale.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>Custom AI Tools</h4>
+              <p>Bespoke AI-powered applications — from document analysers to intelligent recommendation engines.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>RAG Systems</h4>
+              <p>Retrieval-Augmented Generation systems that let your team "chat" with your business knowledge base.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>AI Image Generation Pipelines</h4>
+              <p>Automated visual content creation workflows using Stable Diffusion, DALL-E, and Midjourney APIs.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>LLM Integration</h4>
+              <p>Seamlessly integrate OpenAI, Anthropic, Google Gemini, and other AI models into your existing products.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>Voice AI Solutions</h4>
+              <p>AI-powered voice assistants and speech-to-text integrations for hands-free business operations.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>AI-Powered Analytics</h4>
+              <p>Natural language interfaces to your business data — ask questions, get instant insights.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONSULTING TAB -->
+    <div class="tab-panel" id="tab-consulting">
+      <div class="service-detail-card reveal">
+        <div class="sdc-header">
+          <div class="sdc-icon" style="background:rgba(61,214,140,0.12);font-size:1.8rem;">🧠</div>
+          <div>
+            <h2>AI Consulting & Strategy</h2>
+            <p>Not sure where to start with AI? Our consulting service helps you navigate the landscape, identify the right opportunities, and build a clear roadmap for AI adoption in your business — without the confusion and hype.</p>
+          </div>
+        </div>
+        <div class="sdc-features">
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>AI Readiness Assessment</h4>
+              <p>A comprehensive audit of your current operations to identify where AI can deliver the most value.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>Technology Roadmap</h4>
+              <p>A phased, prioritised plan for AI adoption — aligned with your budget, team capabilities, and goals.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>Tool Selection Guidance</h4>
+              <p>Cut through the noise — we help you pick the right AI tools and vendors for your specific needs.</p>
+            </div>
+          </div>
+          <div class="sdc-feature">
+            <div class="sdc-check">✓</div>
+            <div>
+              <h4>Team Training Workshops</h4>
+              <p>Hands-on AI literacy training for your team — practical, relevant, and immediately applicable.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison table -->
+      <div class="reveal">
+        <span class="section-label">Service Comparison</span>
+        <h3 class="section-title" style="font-size:1.8rem;">Which Service Is <span class="grad-text">Right for You?</span></h3>
+      </div>
+      <div style="overflow-x:auto;" class="reveal">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Web Design</th>
+              <th>AI Automation</th>
+              <th>Generative AI</th>
+              <th>Consulting</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Best for</td><td>New/refreshed online presence</td><td>Efficiency & cost saving</td><td>Content & customer tools</td><td>Strategic planning</td></tr>
+            <tr><td>Time to deliver</td><td>2–4 weeks</td><td>1–3 weeks</td><td>2–6 weeks</td><td>1–2 weeks</td></tr>
+            <tr><td>Ongoing support</td><td class="chk-yes">✓</td><td class="chk-yes">✓</td><td class="chk-yes">✓</td><td class="chk-yes">✓</td></tr>
+            <tr><td>Technical complexity</td><td>Medium</td><td>Medium–High</td><td>High</td><td>Low–Medium</td></tr>
+            <tr><td>Custom development</td><td class="chk-yes">✓</td><td class="chk-yes">✓</td><td class="chk-yes">✓</td><td class="chk-no">—</td></tr>
+            <tr><td>Training included</td><td class="chk-yes">✓</td><td class="chk-yes">✓</td><td class="chk-yes">✓</td><td class="chk-yes">✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- MORE SERVICES TAB -->
+    <div class="tab-panel" id="tab-more">
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon icon-blue">📊</div>
+          <h3>AI-Powered Dashboard</h3>
+          <p>Custom business intelligence dashboards with AI-driven insights, live data visualisation, and predictive analytics built for your KPIs.</p>
+          <div class="service-tags"><span class="tag">Analytics</span><span class="tag">Data Viz</span><span class="tag">Coming Soon</span></div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon icon-cyan">🔗</div>
+          <h3>System Integrations</h3>
+          <p>Connect your entire business stack — ERP, CRM, accounting software, marketplaces — into one unified, automated system.</p>
+          <div class="service-tags"><span class="tag">API</span><span class="tag">Integration</span><span class="tag">Available</span></div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon icon-green">📧</div>
+          <h3>AI Email Marketing</h3>
+          <p>AI-generated, personalised email campaigns that adapt to subscriber behaviour and maximise open rates and conversions.</p>
+          <div class="service-tags"><span class="tag">Email</span><span class="tag">AI Copy</span><span class="tag">Coming Soon</span></div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon" style="background:rgba(26,127,232,0.1)">🎨</div>
+          <h3>Brand Identity Design</h3>
+          <p>Logo design, brand guidelines, and visual identity systems that make your business instantly recognisable and professional.</p>
+          <div class="service-tags"><span class="tag">Branding</span><span class="tag">Logo</span><span class="tag">Available</span></div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon" style="background:rgba(12,201,213,0.1)">📱</div>
+          <h3>Social Media Automation</h3>
+          <p>AI-powered content scheduling, caption generation, and hashtag optimisation to grow your social media presence on autopilot.</p>
+          <div class="service-tags"><span class="tag">Social</span><span class="tag">Automation</span><span class="tag">Available</span></div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon" style="background:rgba(61,214,140,0.1)">🏪</div>
+          <h3>Local Business Solutions</h3>
+          <p>Affordable, specialised digital packages for restaurants, retail shops, clinics, and other local Bengaluru businesses.</p>
+          <div class="service-tags"><span class="tag">Local SMB</span><span class="tag">Affordable</span><span class="tag">Available</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="section cta-section">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <span class="section-label" style="justify-content:center;">Get Started Today</span>
+      <h2 class="cta-title">Not Sure Which Service <span class="grad-text">You Need?</span></h2>
+      <p class="cta-desc">Book a free 30-minute discovery call with our team. We'll understand your business and recommend the exact services that will make the biggest impact.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-primary">Book Free Consultation →</a>
+        <a href="portfolio.html" class="btn btn-outline">View Case Studies</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-row">
+          <div class="logo-icon">S</div>
+          <span class="brand-name">Stackmin</span>
+        </div>
+        <p class="footer-tagline">Building the digital future — one intelligent solution at a time.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">in</a>
+          <a href="#" class="social-link">𝕏</a>
+          <a href="#" class="social-link">▶</a>
+          <a href="#" class="social-link">⌥</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="about.html#team">Our Team</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#web">Web Design</a></li>
+          <li><a href="services.html#automation">AI Automation</a></li>
+          <li><a href="services.html#genai">Generative AI</a></li>
+          <li><a href="services.html#consulting">Consulting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:veereshstackmin@gmail.com">veereshstackmin@gmail.com</a></li>
+          <li><a href="tel:6362396319">+91 63623 96319</a></li>
+          <li><a href="tel:9380163031">+91 93801 63031</a></li>
+          <li><a href="#">Bengaluru, Karnataka</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Stackmin. All rights reserved. Made with <span>♥</span> in Bengaluru.</p>
+      <p><a href="#" style="color:var(--text-muted)">Privacy Policy</a> · <a href="#" style="color:var(--text-muted)">Terms</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

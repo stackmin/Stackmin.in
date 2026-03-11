@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — Stackmin | Get in Touch</title>
+  <meta name="description" content="Contact Stackmin for web design, AI automation, and generative AI solutions. Reach Veeresh or Mujahid directly in Bengaluru." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin-top: 40px; }
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .faq-item:hover { border-color: var(--border-hover); }
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 20px;
+      cursor: pointer;
+      font-family: var(--ff-display);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      gap: 16px;
+    }
+    .faq-arrow {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem;
+      flex-shrink: 0;
+      transition: transform var(--transition);
+      color: var(--cyan);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 20px;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .faq-item.open .faq-answer { max-height: 200px; padding: 0 20px 18px; }
+    .faq-item.open { border-color: var(--border-hover); }
+
+    /* Map placeholder */
+    .map-placeholder {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      height: 240px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .map-placeholder::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(26,127,232,0.06) 0%, transparent 70%);
+    }
+    .map-placeholder .map-icon { font-size: 2.5rem; }
+    .map-placeholder p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      text-align: center;
+      position: relative; z-index: 1;
+    }
+    .map-placeholder a {
+      color: var(--cyan);
+      font-size: 0.82rem;
+      font-weight: 600;
+      position: relative; z-index: 1;
+      transition: var(--transition);
+    }
+    .map-placeholder a:hover { color: var(--green); }
+
+    .contact-page-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 48px;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .contact-page-grid { grid-template-columns: 1fr; }
+    }
+
+    .quick-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 80px;
+    }
+    .quick-link-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    .quick-link-card:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-elevated);
+      transform: translateY(-2px);
+    }
+    .ql-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .ql-title {
+      font-family: var(--ff-display);
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+    .ql-sub { font-size: 0.78rem; color: var(--text-muted); }
+
+    @media (max-width: 600px) {
+      .quick-links { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">S</div>
+      Stackmin
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:6362396319" class="btn btn-outline" style="padding:10px 20px;font-size:0.82rem;">📞 Call Us</a>
+      <button class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container">
+    <span class="section-label" style="justify-content:center;margin-bottom:20px;">Get in Touch</span>
+    <h1 class="fade-in">Let's Build Something <span class="grad-text">Together</span></h1>
+    <p class="fade-in-delay-1">Have a project in mind or just want to explore possibilities? We're always happy to talk. Reach out — we respond within 24 hours.</p>
+  </div>
+</div>
+
+<!-- ── QUICK LINKS ── -->
+<section class="section-sm">
+  <div class="container">
+    <div class="quick-links reveal">
+      <a href="tel:6362396319" class="quick-link-card">
+        <div class="ql-icon icon-blue">📞</div>
+        <div>
+          <div class="ql-title">Call Veeresh</div>
+          <div class="ql-sub">+91 63623 96319</div>
+        </div>
+      </a>
+      <a href="tel:9380163031" class="quick-link-card">
+        <div class="ql-icon icon-cyan">📞</div>
+        <div>
+          <div class="ql-title">Call Mujahid</div>
+          <div class="ql-sub">+91 93801 63031</div>
+        </div>
+      </a>
+      <a href="mailto:veereshstackmin@gmail.com" class="quick-link-card">
+        <div class="ql-icon icon-green">✉️</div>
+        <div>
+          <div class="ql-title">Email Veeresh</div>
+          <div class="ql-sub">veereshstackmin@gmail.com</div>
+        </div>
+      </a>
+      <a href="mailto:Mujahidstackmin@gmail.com" class="quick-link-card">
+        <div class="ql-icon" style="background:rgba(61,214,140,0.1)">✉️</div>
+        <div>
+          <div class="ql-title">Email Mujahid</div>
+          <div class="ql-sub">Mujahidstackmin@gmail.com</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT MAIN ── -->
+<section class="section" style="padding-top:20px;">
+  <div class="container">
+    <div class="contact-page-grid">
+
+      <!-- Left: Info -->
+      <div>
+        <!-- Veeresh Card -->
+        <div class="contact-info-card reveal" style="margin-bottom:24px;">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+            <div style="width:44px;height:44px;border-radius:50%;background:var(--grad-blue);display:flex;align-items:center;justify-content:center;font-family:var(--ff-display);font-weight:800;color:#fff;font-size:1.1rem;flex-shrink:0;">V</div>
+            <div>
+              <h3 style="margin-bottom:2px;">Veeresh</h3>
+              <div style="font-size:0.78rem;color:var(--cyan);font-weight:600;">Founder & CEO</div>
+            </div>
+          </div>
+          <p>Head of strategy, client relations, and creative direction. Reach Veeresh for project discussions, partnership enquiries, or if you want to talk about the big picture.</p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="ci-icon">📞</div>
+              <div>
+                <div class="ci-label">Phone</div>
+                <a href="tel:6362396319" class="ci-value">+91 63623 96319</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon">✉️</div>
+              <div>
+                <div class="ci-label">Email</div>
+                <a href="mailto:veereshstackmin@gmail.com" class="ci-value">veereshstackmin@gmail.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mujahid Card -->
+        <div class="contact-info-card reveal" style="margin-bottom:24px;">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+            <div style="width:44px;height:44px;border-radius:50%;background:var(--grad-green);display:flex;align-items:center;justify-content:center;font-family:var(--ff-display);font-weight:800;color:#fff;font-size:1.1rem;flex-shrink:0;">M</div>
+            <div>
+              <h3 style="margin-bottom:2px;">Mujahid</h3>
+              <div style="font-size:0.78rem;color:var(--green);font-weight:600;">Co-Founder & CTO</div>
+            </div>
+          </div>
+          <p>Head of technology and delivery. Reach Mujahid for technical discussions, API integrations, AI project scoping, or any in-depth technical questions about your project.</p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="ci-icon">📞</div>
+              <div>
+                <div class="ci-label">Phone</div>
+                <a href="tel:9380163031" class="ci-value">+91 93801 63031</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon">✉️</div>
+              <div>
+                <div class="ci-label">Email</div>
+                <a href="mailto:Mujahidstackmin@gmail.com" class="ci-value">Mujahidstackmin@gmail.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Location & Map -->
+        <div class="contact-info-card reveal">
+          <h3>Our Location</h3>
+          <p>We're based in the heart of Bengaluru, Karnataka — India's Silicon Valley. We work with clients locally and remotely across India.</p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="ci-icon">📍</div>
+              <div>
+                <div class="ci-label">Location</div>
+                <div class="ci-value">Bengaluru, Karnataka, India</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon">🕐</div>
+              <div>
+                <div class="ci-label">Working Hours</div>
+                <div class="ci-value">Mon–Sat, 9:00 AM – 7:00 PM IST</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon">⚡</div>
+              <div>
+                <div class="ci-label">Response Time</div>
+                <div class="ci-value">Within 24 hours guaranteed</div>
+              </div>
+            </div>
+          </div>
+          <div class="map-placeholder">
+            <div class="map-icon">🗺️</div>
+            <p>Bengaluru, Karnataka, India</p>
+            <a href="https://maps.google.com/?q=Bengaluru,Karnataka" target="_blank" rel="noopener">Open in Google Maps →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="contact-form-wrap reveal">
+        <div class="form-title">Send Us a Message</div>
+        <div class="form-subtitle">Tell us about your project — we'll get back to you within 24 hours with ideas and next steps.</div>
+
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-name">Full Name *</label>
+              <input type="text" id="f-name" name="name" placeholder="Your full name" />
+              <div class="form-error"></div>
+            </div>
+            <div class="form-group">
+              <label for="f-email">Email Address *</label>
+              <input type="email" id="f-email" name="email" placeholder="your@email.com" />
+              <div class="form-error"></div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-phone">Phone Number</label>
+              <input type="tel" id="f-phone" name="phone" placeholder="+91 XXXXX XXXXX" />
+              <div class="form-error"></div>
+            </div>
+            <div class="form-group">
+              <label for="f-company">Company / Business</label>
+              <input type="text" id="f-company" name="company" placeholder="Your company name" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="f-service">Service Interested In</label>
+            <select id="f-service" name="service">
+              <option value="" disabled selected>Select a service...</option>
+              <option value="web">Web Designing & Maintenance</option>
+              <option value="automation">AI Automation</option>
+              <option value="genai">Generative AI Solutions</option>
+              <option value="consulting">AI Consulting & Strategy</option>
+              <option value="branding">Brand Identity Design</option>
+              <option value="multiple">Multiple Services</option>
+              <option value="other">Other / Not Sure Yet</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="f-budget">Approximate Budget</label>
+            <select id="f-budget" name="budget">
+              <option value="" disabled selected>Select budget range...</option>
+              <option value="under10k">Under ₹10,000</option>
+              <option value="10k-25k">₹10,000 – ₹25,000</option>
+              <option value="25k-50k">₹25,000 – ₹50,000</option>
+              <option value="50k-1l">₹50,000 – ₹1,00,000</option>
+              <option value="above1l">Above ₹1,00,000</option>
+              <option value="discuss">Prefer to Discuss</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="f-message">Your Message *</label>
+            <textarea id="f-message" name="message" placeholder="Tell us about your project, goals, timeline, and any other details that would help us understand your needs..."></textarea>
+            <div class="form-error"></div>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            Send Message ↗
+          </button>
+          <div id="formSuccess" class="form-success">
+            ✅ Message sent successfully! We'll get back to you within 24 hours.
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="reveal" style="max-width:700px;margin:0 auto;">
+      <span class="section-label" style="justify-content:center;">Common Questions</span>
+      <h2 class="section-title" style="text-align:center;">Frequently Asked <span class="grad-text">Questions</span></h2>
+    </div>
+    <div class="faq-list" style="max-width:700px;margin:0 auto;">
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          How long does a typical project take?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          It depends on the project scope. A standard website typically takes 2–4 weeks from kickoff to launch. AI automation projects take 1–3 weeks. More complex generative AI solutions may take 4–8 weeks. We'll give you a precise timeline after our discovery call.
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          Do you work with businesses outside Bengaluru?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          Absolutely. We work with clients across India — remotely, with full transparency and regular communication. Our team is comfortable handling projects entirely online, with video calls, shared project boards, and real-time updates.
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          What is included in your maintenance packages?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          Our maintenance packages include regular software/plugin updates, security monitoring and patching, performance optimisation, daily backups, uptime monitoring, and up to 2 hours of content updates per month. Custom packages are available based on your needs.
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          Do I need to know anything about AI to use your AI services?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          Not at all. We handle all the technical complexity. You just need to tell us your business goals and pain points — we'll design the right AI solution and train your team to use it confidently. No technical knowledge required.
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          What happens after the project is delivered?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          Every project includes a free support period (1–6 months depending on package). After that, you can opt into one of our maintenance or retainer plans. We also offer training so your team can manage the day-to-day independently.
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          How do you handle payments and contracts?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          We provide a clear project agreement before any work begins. Payment is typically split: 50% upfront, 50% on completion. We accept UPI, bank transfer, and other standard payment methods. Everything is transparent with no hidden fees.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-row">
+          <div class="logo-icon">S</div>
+          <span class="brand-name">Stackmin</span>
+        </div>
+        <p class="footer-tagline">Building the digital future — one intelligent solution at a time.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">in</a>
+          <a href="#" class="social-link">𝕏</a>
+          <a href="#" class="social-link">▶</a>
+          <a href="#" class="social-link">⌥</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="about.html#team">Our Team</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Web Design</a></li>
+          <li><a href="services.html">AI Automation</a></li>
+          <li><a href="services.html">Generative AI</a></li>
+          <li><a href="services.html">Consulting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:veereshstackmin@gmail.com">veereshstackmin@gmail.com</a></li>
+          <li><a href="mailto:Mujahidstackmin@gmail.com">Mujahidstackmin@gmail.com</a></li>
+          <li><a href="tel:6362396319">+91 63623 96319</a></li>
+          <li><a href="tel:9380163031">+91 93801 63031</a></li>
+          <li><span style="color:var(--text-muted)">Bengaluru, Karnataka</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Stackmin. All rights reserved. Made with <span>♥</span> in Bengaluru.</p>
+      <p><a href="#" style="color:var(--text-muted)">Privacy Policy</a> · <a href="#" style="color:var(--text-muted)">Terms</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>

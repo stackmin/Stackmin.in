@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stackmin — Web Design & AI Solutions | Bengaluru</title>
+  <meta name="description" content="Stackmin delivers cutting-edge web design, AI automation, and generative AI solutions for businesses in Bengaluru and beyond. Build smarter with us." />
+  <meta name="keywords" content="web design Bengaluru, AI automation, generative AI, website development, Stackmin" />
+  <meta property="og:title" content="Stackmin — Web Design & AI Solutions" />
+  <meta property="og:description" content="Build smarter with Stackmin — custom web design, AI automation, and intelligent digital solutions." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://stackmin.com/" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Home-specific extras */
+    .tech-strip {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+      overflow: hidden;
+    }
+    .tech-strip-inner {
+      display: flex;
+      gap: 48px;
+      align-items: center;
+      animation: marquee 30s linear infinite;
+      white-space: nowrap;
+    }
+    .tech-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--ff-display);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .tech-item .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--grad-main); flex-shrink: 0; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .features-band {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      margin-top: 80px;
+    }
+    .feat-item {
+      background: var(--bg-secondary);
+      padding: 32px 24px;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .feat-item:hover { background: var(--bg-elevated); }
+    .feat-icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .feat-item h4 {
+      font-family: var(--ff-display);
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .feat-item p { font-size: 0.78rem; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">S</div>
+      Stackmin
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-primary" style="margin-top:16px;justify-content:center;">Get a Quote</a>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="hero-grid"></div>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-eyebrow fade-in">
+          <span class="dot"></span>
+          Now accepting new clients
+        </div>
+        <h1 class="hero-title fade-in-delay-1">
+          Build Smarter.<br>
+          <span class="grad-text">Grow Faster.</span><br>
+          Ship with AI.
+        </h1>
+        <p class="hero-desc fade-in-delay-2">
+          Stackmin combines world-class web design with cutting-edge AI automation to deliver digital solutions that actually move the needle for your business.
+        </p>
+        <div class="hero-actions fade-in-delay-3">
+          <a href="services.html" class="btn btn-primary">Explore Services ↗</a>
+          <a href="portfolio.html" class="btn btn-outline">View Our Work</a>
+        </div>
+        <div class="hero-stats fade-in-delay-3">
+          <div class="stat">
+            <span class="stat-num counter" data-target="30" data-suffix="+">0+</span>
+            <span class="stat-label">Projects Delivered</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num counter" data-target="100" data-suffix="%">0%</span>
+            <span class="stat-label">Client Satisfaction</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num counter" data-target="5" data-suffix="x">0x</span>
+            <span class="stat-label">Avg. ROI Boost</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual -->
+      <div class="hero-visual">
+        <div class="hero-card-stack">
+          <div class="h-card h-card-main">
+            <div class="card-icon-wrap icon-blue">🤖</div>
+            <div class="card-title">AI Automation Engine</div>
+            <div class="card-desc">Intelligent workflows running 24/7, automating your business processes seamlessly.</div>
+            <div class="card-progress">
+              <div class="progress-label"><span>Automation Rate</span><span>94%</span></div>
+              <div class="progress-bar"><div class="progress-fill" data-width="94"></div></div>
+              <div class="progress-label"><span>Time Saved</span><span>87%</span></div>
+              <div class="progress-bar"><div class="progress-fill" data-width="87" style="background: var(--grad-green)"></div></div>
+              <div class="progress-label"><span>Cost Reduction</span><span>72%</span></div>
+              <div class="progress-bar"><div class="progress-fill" data-width="72" style="background: linear-gradient(90deg,var(--cyan),var(--green))"></div></div>
+            </div>
+          </div>
+          <div class="h-card h-card-2">
+            <div class="card-icon-wrap icon-cyan">🌐</div>
+            <div class="card-title">Web Design</div>
+            <div class="card-desc">Pixel-perfect, blazing-fast websites that convert visitors into customers.</div>
+            <div style="margin-top:14px;display:flex;gap:6px;flex-wrap:wrap;">
+              <span class="badge badge-blue">Responsive</span>
+              <span class="badge badge-cyan">SEO</span>
+              <span class="badge badge-green">Fast</span>
+            </div>
+          </div>
+          <div class="h-card h-card-3">
+            <div class="card-icon-wrap icon-green">✨</div>
+            <div class="card-title">Generative AI</div>
+            <div class="card-desc">Custom AI tools and chatbots built for your unique needs.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features band -->
+    <div class="features-band reveal">
+      <div class="feat-item">
+        <div class="feat-icon">⚡</div>
+        <h4>Lightning Fast</h4>
+        <p>Sub-2s load times</p>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon">🔒</div>
+        <h4>Secure by Default</h4>
+        <p>SSL & best practices</p>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon">📱</div>
+        <h4>Fully Responsive</h4>
+        <p>All devices covered</p>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon">🤖</div>
+        <h4>AI-Powered</h4>
+        <p>Smart automation</p>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon">🎯</div>
+        <h4>SEO Optimised</h4>
+        <p>Rank higher, grow faster</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TECH STRIP ── -->
+<div class="tech-strip">
+  <div class="tech-strip-inner">
+    <span class="tech-item"><span class="dot"></span>HTML5 / CSS3</span>
+    <span class="tech-item"><span class="dot"></span>React</span>
+    <span class="tech-item"><span class="dot"></span>Node.js</span>
+    <span class="tech-item"><span class="dot"></span>OpenAI API</span>
+    <span class="tech-item"><span class="dot"></span>Google AI</span>
+    <span class="tech-item"><span class="dot"></span>Zapier Automation</span>
+    <span class="tech-item"><span class="dot"></span>Shopify / WooCommerce</span>
+    <span class="tech-item"><span class="dot"></span>WordPress</span>
+    <span class="tech-item"><span class="dot"></span>Make / n8n</span>
+    <span class="tech-item"><span class="dot"></span>Figma</span>
+    <!-- Duplicate for seamless loop -->
+    <span class="tech-item"><span class="dot"></span>HTML5 / CSS3</span>
+    <span class="tech-item"><span class="dot"></span>React</span>
+    <span class="tech-item"><span class="dot"></span>Node.js</span>
+    <span class="tech-item"><span class="dot"></span>OpenAI API</span>
+    <span class="tech-item"><span class="dot"></span>Google AI</span>
+    <span class="tech-item"><span class="dot"></span>Zapier Automation</span>
+    <span class="tech-item"><span class="dot"></span>Shopify / WooCommerce</span>
+    <span class="tech-item"><span class="dot"></span>WordPress</span>
+    <span class="tech-item"><span class="dot"></span>Make / n8n</span>
+    <span class="tech-item"><span class="dot"></span>Figma</span>
+  </div>
+</div>
+
+<!-- ── SERVICES OVERVIEW ── -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Services Built for the<br><span class="grad-text">Modern Business</span></h2>
+      <p class="section-desc">From your first website to a fully automated AI-powered operation — we build the digital infrastructure your business deserves.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon icon-blue">🌐</div>
+        <h3>Web Designing & Maintenance</h3>
+        <p>Custom, responsive websites designed with purpose — from stunning landing pages and e-commerce stores to full maintenance packages that keep you online, always.</p>
+        <div class="service-tags">
+          <span class="tag">Custom Design</span>
+          <span class="tag">E-Commerce</span>
+          <span class="tag">Responsive</span>
+          <span class="tag">Maintenance</span>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon icon-cyan">⚙️</div>
+        <h3>AI Automation</h3>
+        <p>Eliminate repetitive tasks and unlock efficiency at scale. We design and deploy intelligent automations that keep your business running even when you're not.</p>
+        <div class="service-tags">
+          <span class="tag">Workflow Automation</span>
+          <span class="tag">Process Optimization</span>
+          <span class="tag">Integration</span>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon icon-green">✨</div>
+        <h3>Generative AI Solutions</h3>
+        <p>Harness the power of large language models to build custom chatbots, AI content pipelines, and intelligent tools tailored to your industry.</p>
+        <div class="service-tags">
+          <span class="tag">ChatBots</span>
+          <span class="tag">Content AI</span>
+          <span class="tag">Custom LLM Tools</span>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon" style="background:rgba(61,214,140,0.1)">🧠</div>
+        <h3>AI Consulting & Strategy</h3>
+        <p>Not sure where AI fits in your business? Our experts map your operations, identify high-impact AI opportunities, and build a roadmap for successful adoption.</p>
+        <div class="service-tags">
+          <span class="tag">AI Audit</span>
+          <span class="tag">Strategy</span>
+          <span class="tag">Roadmap</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px;" class="reveal">
+      <a href="services.html" class="btn btn-outline">See All Services →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY CHOOSE US ── -->
+<section class="section" style="background:linear-gradient(180deg, transparent, rgba(26,127,232,0.03) 50%, transparent)">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Why Stackmin</span>
+      <h2 class="section-title">We Don't Just Build.<br><span class="grad-text">We Deliver Results.</span></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-list">
+        <div class="why-item reveal">
+          <div class="wi-icon">🚀</div>
+          <div>
+            <h4>Speed to Market</h4>
+            <p>We move fast without compromising quality. Most projects go live within 2–4 weeks from kickoff.</p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <div class="wi-icon">💡</div>
+          <div>
+            <h4>AI-First Mindset</h4>
+            <p>Every solution we build is infused with intelligent automation — giving your business a real competitive edge.</p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <div class="wi-icon">🤝</div>
+          <div>
+            <h4>Transparent Partnership</h4>
+            <p>No jargon, no hidden costs. You'll always know exactly what we're building and why.</p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <div class="wi-icon">🔧</div>
+          <div>
+            <h4>End-to-End Support</h4>
+            <p>From design through deployment and beyond — we're your long-term digital partner, not a one-time vendor.</p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <div class="wi-icon">📍</div>
+          <div>
+            <h4>Local Expertise, Global Standards</h4>
+            <p>Based in Bengaluru, we deeply understand the Indian market while building to international quality benchmarks.</p>
+          </div>
+        </div>
+      </div>
+      <div class="why-visual">
+        <div class="why-orb"></div>
+        <div class="why-orb why-orb-2"></div>
+        <div class="why-center">
+          <h3 class="counter" data-target="100" data-suffix="%">0%</h3>
+          <p>Client Satisfaction Rate</p>
+          <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px;">
+            <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:8px 12px;font-size:0.75rem;color:var(--text-secondary);">⚡ 2–4 Week Delivery</div>
+            <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:8px 12px;font-size:0.75rem;color:var(--text-secondary);">🔒 Secure & Scalable</div>
+            <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:8px 12px;font-size:0.75rem;color:var(--text-secondary);">🤖 AI-Powered Stack</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="section cta-section">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <span class="section-label" style="justify-content:center;">Let's Build Together</span>
+      <h2 class="cta-title">Ready to <span class="grad-text">Transform</span> Your Business?</h2>
+      <p class="cta-desc">Whether you need a stunning website or an AI-powered automation system, Stackmin has you covered. Let's start the conversation today.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-primary">Start a Project →</a>
+        <a href="tel:6362396319" class="btn btn-outline">📞 Call Us Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-row">
+          <div class="logo-icon">S</div>
+          <span class="brand-name">Stackmin</span>
+        </div>
+        <p class="footer-tagline">Building the digital future — one intelligent solution at a time. Web design, AI automation, and generative AI for businesses that want to lead.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+          <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+          <a href="#" class="social-link" aria-label="Instagram">▶</a>
+          <a href="#" class="social-link" aria-label="GitHub">⌥</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="about.html#team">Our Team</a></li>
+          <li><a href="about.html#values">Our Values</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#web">Web Design</a></li>
+          <li><a href="services.html#automation">AI Automation</a></li>
+          <li><a href="services.html#genai">Generative AI</a></li>
+          <li><a href="services.html#consulting">AI Consulting</a></li>
+          <li><a href="services.html#maintenance">Maintenance</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:veereshstackmin@gmail.com">veereshstackmin@gmail.com</a></li>
+          <li><a href="mailto:Mujahidstackmin@gmail.com">Mujahidstackmin@gmail.com</a></li>
+          <li><a href="tel:6362396319">+91 63623 96319</a></li>
+          <li><a href="tel:9380163031">+91 93801 63031</a></li>
+          <li><a href="#">Bengaluru, Karnataka</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Stackmin. All rights reserved. Made with <span>♥</span> in Bengaluru.</p>
+      <p><a href="#" style="color:var(--text-muted);transition:var(--transition);" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-muted)'">Privacy Policy</a> · <a href="#" style="color:var(--text-muted);transition:var(--transition);" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-muted)'">Terms of Service</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
