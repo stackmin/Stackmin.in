@@ -177,11 +177,10 @@ body::before {
 }
 
 /* ── NAVBAR ── */
-.navbar {
-  position: fixed; top: 0; left: 0; right: 0;
-  z-index: 1000;
-  padding: 0 24px;
-  transition: var(--transition);
+.navbar .logo,
+.navbar img[src="logo.png"] {
+  height: 55px;
+  width: auto;
 }
 .navbar.scrolled {
   background: rgba(17,28,36,0.92);
