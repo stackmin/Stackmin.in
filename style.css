@@ -177,16 +177,34 @@ body::before {
 }
 
 /* ── NAVBAR ── */
-.navbar .logo,
-.navbar img[src="logo.png"] {
-  height: 55px;
-  width: auto;
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0 24px;
+  transition: var(--transition);
 }
 .navbar.scrolled {
   background: rgba(17,28,36,0.92);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+}
+
+/* ── LOGO — applied everywhere logo.png appears ── */
+.nav-logo img,
+.nav-logo img[src="logo.png"],
+.navbar .logo,
+.navbar img[src="logo.png"] {
+  height: 52px;        /* ← change this value to resize */
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Hide the old gradient square icon when real logo image is present */
+.nav-logo img ~ .logo-icon,
+.nav-logo img + span .logo-icon {
+  display: none;
 }
 
 .nav-inner {
@@ -1160,6 +1178,15 @@ footer {
   font-size: 1.3rem;
   font-weight: 800;
 }
+
+/* Footer logo image sizing */
+.footer-brand .logo-row img,
+.footer-brand img[src="logo.png"] {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
 .footer-tagline {
   font-size: 0.875rem;
   color: var(--text-secondary);
@@ -1515,6 +1542,14 @@ footer {
   .form-row { grid-template-columns: 1fr; }
   .hero-stats { gap: 20px; }
   .sdc-header { flex-direction: column; }
+
+  /* Slightly smaller logo on mobile */
+  .nav-logo img,
+  .nav-logo img[src="logo.png"],
+  .navbar .logo,
+  .navbar img[src="logo.png"] {
+    height: 40px;
+  }
 }
 
 @media (max-width: 480px) {
